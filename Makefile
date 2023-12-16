@@ -6,7 +6,7 @@
 #    By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 11:51:03 by issierra          #+#    #+#              #
-#    Updated: 2023/11/30 08:55:09 by issierra         ###   ########.fr        #
+#    Updated: 2023/12/16 09:37:47 by issierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ NAME=push_swap
 # NAME_BONUS=so_long_bonus
 CC=gcc
 # CC=gcc -g
-# CC = clang -fsanitize=address -g
+#CC = clang -fsanitize=address -g
 CFLAGS=-Wall -Werror -Wextra
 LIBFT=./libft/libft.a
 H=push_swap.h
 # H_BONUS=./src_bonus/so_long_bonus.h
 
-SRC=	push_swap.c \
+SRC=	push_swap.c check_inputs.c \
 
 
 OBJ=$(SRC:.c=.o)
