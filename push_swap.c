@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/16 09:45:05 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/16 11:12:27 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ int push(char* arrA, char* arrB)
     return(0);
 }
 
-// int swap(char* arr)
-// {
-//     int temp;
+int swap(char* arr)
+{
+    int temp;
     
-//     temp = arr[0];
-//     arr[0] = arr[1];
-//     arr[1] = temp;
-//     return(0);
-// }
+    temp = arr[0];
+    arr[0] = arr[1];
+    arr[1] = temp;
+    return(0);
+}
 
 int swap_a(char* arrA)
 {
@@ -120,6 +120,8 @@ t_stack *ft_lst_new(int nbr)
     return (new);
 }
 
+
+
 void create_stack(t_stack *A, char **argv, int argc)
 {
     int i;
@@ -136,9 +138,37 @@ void create_stack(t_stack *A, char **argv, int argc)
         aux = aux->next;
     }
     aux->next = NULL;
-
-    imprimir_lista(A);
 }
+
+void ft_lst_delone(t_stack *lst, void (*del)(void *))
+{
+    if (!lst)
+        return;
+    del(&lst->nbr);
+    del(&lst->pos);
+    free(lst);
+}
+
+
+void ft_lst_clear(t_stack **lst, void (*del)(void *))
+{
+    t_stack *aux;
+
+    if(!lst)
+        return;
+    while (*lst)
+    {
+        aux = (*lst)->next;
+        ft_lst_delone(*lst, del);
+        *lst = aux;
+    }
+    *lst = NULL;
+}
+
+// void del(void *content)
+// {
+//     free(content);
+// }
 
 
 int main(int argc, char *argv[])
@@ -146,7 +176,7 @@ int main(int argc, char *argv[])
     t_stack *A;
 
     A = NULL;
-    //atexit(leaks);
+    atexit(leaks);
     if (argc < 2)
     {
         ft_printf("Error.\nNúmero de argumentos inválidos %i\n", argc);
@@ -162,7 +192,11 @@ int main(int argc, char *argv[])
 
             //Creamos el stack A
             create_stack(A, argv, argc);
-
+            //al terminar programa liberamos memoria
+            imprimir_lista(A);
+            ft_lst_clear(&A, free);
+        imprimir_lista(A);
+            
         }
     }
     
