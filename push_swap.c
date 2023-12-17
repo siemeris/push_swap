@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/16 11:12:27 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/17 18:44:24 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,12 @@ void create_stack(t_stack *A, char **argv, int argc)
     aux->next = NULL;
 }
 
+void del(void *content)
+{
+    free(content);
+}
+
+
 void ft_lst_delone(t_stack *lst, void (*del)(void *))
 {
     if (!lst)
@@ -165,11 +171,19 @@ void ft_lst_clear(t_stack **lst, void (*del)(void *))
     *lst = NULL;
 }
 
-// void del(void *content)
-// {
-//     free(content);
-// }
+void	free_stack(t_stack *head)
+{
+	t_stack	*current;
+	t_stack	*temp;
 
+	current = head;
+	while (current != NULL)
+	{
+		temp = current->next;
+		free(current);
+		current = temp;
+	}
+}
 
 int main(int argc, char *argv[])
 {
@@ -194,8 +208,10 @@ int main(int argc, char *argv[])
             create_stack(A, argv, argc);
             //al terminar programa liberamos memoria
             imprimir_lista(A);
-            ft_lst_clear(&A, free);
-        imprimir_lista(A);
+            //ft_lst_clear(&A, free);
+            free_stack(A);
+            
+            //imprimir_lista(A);
             
         }
     }
