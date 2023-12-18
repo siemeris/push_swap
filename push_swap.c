@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/18 18:16:20 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:30:54 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void swap_a(t_stack *ptr)
     tmp = ptr->nbr;
     ptr->nbr = ptr->next->nbr;
     ptr->next->nbr = tmp;
-    ft_printf("sa");
+    ft_printf("sa\n");
 }
 
 
@@ -150,10 +150,10 @@ int main(int argc, char *argv[])
     t_stack *A;
 
     A = NULL;
-    atexit(leaks);
+    //atexit(leaks);
     if (argc < 2)
     {
-        ft_printf("Error.\nNúmero de argumentos inválidos %i\n", argc);
+        //ft_printf("Error.\nNúmero de argumentos inválidos %i\n", argc);
         return(0);
     }
     else
@@ -162,7 +162,7 @@ int main(int argc, char *argv[])
             return (0);
         else
         {
-            ft_printf("numeros validos");
+            //ft_printf("numeros validos");
 
             //Creamos el stack A
             A = create_stack(argv, argc);
@@ -174,12 +174,12 @@ int main(int argc, char *argv[])
                 if (A->nbr > A->next->nbr)
                 {
                     swap_a(A);
-                    ft_printf("print desp del swap: %i %i", A->nbr, A->next->nbr);
+                    //ft_printf("print desp del swap: %i %i", A->nbr, A->next->nbr);
 
-                    ft_printf("\n");
+                    //ft_printf("\n");
                 }
             }
-            imprimir_lista(A);
+            //imprimir_lista(A);
             ft_lst_clear(A);
             //free_stack(A);
             

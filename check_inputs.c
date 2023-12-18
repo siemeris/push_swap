@@ -30,7 +30,7 @@ int check_arg(int argc, char **arg)
     //comprobamos que no hay número repetidos
     i = 1;
 
-    ft_printf("i %i atoi %i", i, ft_atoi(arg[j]));
+    //ft_printf("i %i atoi %i", i, ft_atoi(arg[j]));
     while (i < argc - 1)
     {
         j = i + 1;
