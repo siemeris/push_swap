@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/18 15:35:57 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:16:20 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,37 +35,27 @@ int push(char* arrA, char* arrB)
     return(0);
 }
 
-int swap(char* arr)
-{
-    int temp;
+// int swap(char* arr)
+// {
+//     int temp;
     
-    temp = arr[0];
-    arr[0] = arr[1];
-    arr[1] = temp;
-    return(0);
-}
+//     temp = arr[0];
+//     arr[0] = arr[1];
+//     arr[1] = temp;
+//     return(0);
+// }
 
-int swap_a(char* arrA)
+void swap_a(t_stack *ptr)
 {
     int tmp;
 
-    tmp = arrA[0];
-    arrA[0] = arrA[1];
-    arrA[1] = tmp;
+    tmp = ptr->nbr;
+    ptr->nbr = ptr->next->nbr;
+    ptr->next->nbr = tmp;
     ft_printf("sa");
-    return(0);
 }
 
-int swap_b(char* arrB)
-{
-    int tmp;
 
-    tmp = arrB[0];
-    arrB[0] = arrB[1];
-    arrB[1] = tmp;
-    ft_printf("sb");
-    return(0);
-}
 
 //PUSH_SWAP DEBE ACEPTAR NEGATIVOS
 
@@ -108,40 +98,7 @@ void imprimir_lista(t_stack *A)
     }
 }
 
-t_stack *ft_lst_new(int nbr)
-{
-    t_stack *new;
 
-    new = (t_stack *)malloc(sizeof(t_stack));
-    if (!new)
-        return (NULL);
-    new->nbr = nbr;
-    new->next = NULL;
-    return (new);
-}
-
-
-
-t_stack *create_stack(char **argv, int argc)
-{
-    int i;
-    t_stack *aux;
-	t_stack *A;
-
-    i = 1;
-    A = ft_lst_new(ft_atoi(argv[i]));
-    aux = A;
-    i++;
-    while (i < argc)
-    {
-        aux->next = ft_lst_new(ft_atoi(argv[i]));
-        i++;
-        aux = aux->next;
-    }
-    aux->next = NULL;
-
-	return (A);
-}
 
 // void del(void *content)
 // {
@@ -210,6 +167,18 @@ int main(int argc, char *argv[])
             //Creamos el stack A
             A = create_stack(argv, argc);
             //al terminar programa liberamos memoria
+        
+            //ordenamos dos numeros
+            if (argc == 3)
+            {
+                if (A->nbr > A->next->nbr)
+                {
+                    swap_a(A);
+                    ft_printf("print desp del swap: %i %i", A->nbr, A->next->nbr);
+
+                    ft_printf("\n");
+                }
+            }
             imprimir_lista(A);
             ft_lst_clear(A);
             //free_stack(A);
