@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/17 18:44:24 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:03:54 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,10 +122,11 @@ t_stack *ft_lst_new(int nbr)
 
 
 
-void create_stack(t_stack *A, char **argv, int argc)
+t_stack *create_stack(char **argv, int argc)
 {
     int i;
     t_stack *aux;
+	t_stack *A;
 
     i = 1;
     A = ft_lst_new(ft_atoi(argv[i]));
@@ -138,25 +139,27 @@ void create_stack(t_stack *A, char **argv, int argc)
         aux = aux->next;
     }
     aux->next = NULL;
+
+	return (A);
 }
 
-void del(void *content)
-{
-    free(content);
-}
+// void del(void *content)
+// {
+//     free(content);
+// }
 
 
-void ft_lst_delone(t_stack *lst, void (*del)(void *))
-{
-    if (!lst)
-        return;
-    del(&lst->nbr);
-    del(&lst->pos);
-    free(lst);
-}
+// void ft_lst_delone(t_stack *lst, void (*del)(void *))
+// {
+//     if (!lst)
+//         return;
+//     del(&lst->nbr);
+//     del(&lst->pos);
+//     free(lst);
+// }
 
 
-void ft_lst_clear(t_stack **lst, void (*del)(void *))
+void ft_lst_clear(t_stack **lst)
 {
     t_stack *aux;
 
@@ -165,25 +168,25 @@ void ft_lst_clear(t_stack **lst, void (*del)(void *))
     while (*lst)
     {
         aux = (*lst)->next;
-        ft_lst_delone(*lst, del);
+        free(*lst);
         *lst = aux;
     }
     *lst = NULL;
 }
 
-void	free_stack(t_stack *head)
-{
-	t_stack	*current;
-	t_stack	*temp;
+// void	free_stack(t_stack *head)
+// {
+// 	t_stack	*current;
+// 	t_stack	*temp;
 
-	current = head;
-	while (current != NULL)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-}
+// 	current = head;
+// 	while (current != NULL)
+// 	{
+// 		temp = current->next;
+// 		free(current);
+// 		current = temp;
+// 	}
+// }
 
 int main(int argc, char *argv[])
 {
@@ -205,11 +208,11 @@ int main(int argc, char *argv[])
             ft_printf("numeros validos");
 
             //Creamos el stack A
-            create_stack(A, argv, argc);
+            A = create_stack(argv, argc);
             //al terminar programa liberamos memoria
             imprimir_lista(A);
-            //ft_lst_clear(&A, free);
-            free_stack(A);
+            ft_lst_clear(&A);
+            //free_stack(A);
             
             //imprimir_lista(A);
             
