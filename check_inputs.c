@@ -31,7 +31,7 @@ int check_arg(int argc, char **arg)
     i = 1;
 
     ft_printf("i %i atoi %i", i, ft_atoi(arg[j]));
-    while (i < argc - 2)
+    while (i < argc - 1)
     {
         j = i + 1;
         while(arg[j])
