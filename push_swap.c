@@ -6,86 +6,22 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/18 18:30:54 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/20 18:47:04 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//PUSH_SWAP DEBE ACEPTAR NEGATIVOS
+//Si no se especifican parámetros, el programa no deberá mostrar nada y deberá
+// devolver el control al usuario.
 
 void leaks()
 {
     system("leaks -q push_swap");
 }
 
-int push(char* arrA, char* arrB)
-{
-    int i;
-    int j;
-    int temp;
 
-    i = 0;
-    j = 0;
-    while (arrA[i] != '\0')
-        i++;
-    while (arrB[j] != '\0')
-        j++;
-    temp = arrA[i - 1];
-    arrA[i - 1] = arrB[j - 1];
-    arrB[j - 1] = temp;
-    return(0);
-}
-
-// int swap(char* arr)
-// {
-//     int temp;
-    
-//     temp = arr[0];
-//     arr[0] = arr[1];
-//     arr[1] = temp;
-//     return(0);
-// }
-
-void swap_a(t_stack *ptr)
-{
-    int tmp;
-
-    tmp = ptr->nbr;
-    ptr->nbr = ptr->next->nbr;
-    ptr->next->nbr = tmp;
-    ft_printf("sa\n");
-}
-
-
-
-//PUSH_SWAP DEBE ACEPTAR NEGATIVOS
-
-int *ft_bubble_sort(int *arr, int n)
-{
-    int i;
-    int j;
-    int temp;
-
-    i = 0;
-    while (i < n - 1)
-    {
-        j = 0;
-        while (j < n - i - 1)
-        {
-            if (arr[j] > arr[j + 1])
-            {
-                //swap
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                ft_printf("s %i %i", arr[j], arr[j + 1]);
-            }
-            j++;
-        }
-        i++;
-    }
-
-    return (arr);
-}
 void imprimir_lista(t_stack *A)
 {
     t_stack *aux;
@@ -96,6 +32,7 @@ void imprimir_lista(t_stack *A)
         ft_printf("%i", aux->nbr);
         aux = aux->next;
     }
+    ft_printf("\n");
 }
 
 
@@ -148,8 +85,10 @@ void ft_lst_clear(t_stack *lst)
 int main(int argc, char *argv[])
 {
     t_stack *A;
+    //t_stack *B;
 
     A = NULL;
+    //B = NULL;
     //atexit(leaks);
     if (argc < 2)
     {
@@ -166,23 +105,36 @@ int main(int argc, char *argv[])
 
             //Creamos el stack A
             A = create_stack(argv, argc);
-            //al terminar programa liberamos memoria
+            
+            if (is_sorted(A))
+            {
+                ft_lst_clear(A);
+                return(0);
+            }
         
             //ordenamos dos numeros
-            if (argc == 3)
+            //ft_printf("len:%i", stack_len(A));
+            if (stack_len(A) == 2)
             {
                 if (A->nbr > A->next->nbr)
                 {
-                    swap_a(A);
+                    sa(A);
                     //ft_printf("print desp del swap: %i %i", A->nbr, A->next->nbr);
 
                     //ft_printf("\n");
                 }
             }
+            else if(stack_len(A) == 3)
+            {   if (is_sorted(A))
+                    return (0);
+                else 
+                    sort_three(&A);
+            }
+            
+            //ft_printf("is_sorted:%i", is_sorted(A));
             //imprimir_lista(A);
             ft_lst_clear(A);
             //free_stack(A);
-            
             //imprimir_lista(A);
             
         }

@@ -12,6 +12,34 @@ t_stack *ft_lst_new(int nbr)
     return (new);
 }
 
+int is_sorted(t_stack *lst)
+{
+    t_stack *aux;
+
+    aux = lst;
+    while(aux->next)
+    {
+        if (aux->nbr > aux->next->nbr)
+            return (0);
+        aux = aux->next;
+    }
+    return (1);
+}
+
+int stack_len(t_stack *lst)
+{
+    t_stack *aux;
+    int len;
+
+    aux = lst;
+    len = 0;
+    while(aux)
+    {
+        len++;
+        aux = aux->next;
+    }
+    return (len);
+}
 
 
 t_stack *create_stack(char **argv, int argc)

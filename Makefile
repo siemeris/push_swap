@@ -6,7 +6,7 @@
 #    By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 11:51:03 by issierra          #+#    #+#              #
-#    Updated: 2023/12/18 15:53:53 by issierra         ###   ########.fr        #
+#    Updated: 2023/12/20 09:36:45 by issierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ H=push_swap.h
 # H_BONUS=./src_bonus/so_long_bonus.h
 
 SRC=	push_swap.c check_inputs.c create_stack.c \
+		moves.c sort.c \
 
 
 OBJ=$(SRC:.c=.o)
