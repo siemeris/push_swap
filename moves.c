@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:24:19 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/21 10:16:31 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:57:58 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,15 @@ void rotr(t_stack **ptr)
     *ptr = head;
 
     //imprimir_lista(*ptr);
+}
+
+void pb(t_stack **a, t_stack **b)
+{
+    t_stack *tmp;
+
+    tmp = *a;
+    *a = (*a)->next;
+    tmp->next = *b;
+    *b = tmp;
+    ft_printf("pb\n");
 }

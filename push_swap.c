@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/21 09:54:41 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:30:51 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void leaks()
     system("leaks -q push_swap");
 }
 
-
 void imprimir_lista(t_stack *A)
 {
     t_stack *aux;
@@ -34,24 +33,6 @@ void imprimir_lista(t_stack *A)
     }
     ft_printf("\n");
 }
-
-
-
-// void del(void *content)
-// {
-//     free(content);
-// }
-
-
-// void ft_lst_delone(t_stack *lst, void (*del)(void *))
-// {
-//     if (!lst)
-//         return;
-//     del(&lst->nbr);
-//     del(&lst->pos);
-//     free(lst);
-// }
-
 
 void ft_lst_clear(t_stack *lst)
 {
@@ -68,27 +49,13 @@ void ft_lst_clear(t_stack *lst)
     lst = NULL;
 }
 
-// void	free_stack(t_stack *head)
-// {
-// 	t_stack	*current;
-// 	t_stack	*temp;
-
-// 	current = head;
-// 	while (current != NULL)
-// 	{
-// 		temp = current->next;
-// 		free(current);
-// 		current = temp;
-// 	}
-// }
-
 int main(int argc, char *argv[])
 {
     t_stack *A;
-    //t_stack *B;
+    t_stack *B;
 
     A = NULL;
-    //B = NULL;
+    B = NULL;
     //atexit(leaks);
     if (argc < 2)
     {
@@ -132,11 +99,12 @@ int main(int argc, char *argv[])
                 else 
                     sort_three(&A);
             }
+            else
+                sort(&A, &B);
             
             //ft_printf("is_sorted:%i", is_sorted(A));
             //imprimir_lista(A);
             ft_lst_clear(A);
-            //free_stack(A);
             //imprimir_lista(A);
             
         }
