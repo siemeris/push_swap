@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/21 08:29:33 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/21 09:54:41 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
             {
                 if (A->nbr > A->next->nbr)
                 {
-                    sa(A);
+                    sa(&A);
                     //ft_printf("print desp del swap: %i %i", A->nbr, A->next->nbr);
 
                     //ft_printf("\n");

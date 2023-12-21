@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:36:50 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/20 18:07:09 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/21 09:54:52 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    sort_three(t_stack **lst)
     //imprimir_lista(*ptr); 
 
     if ((*lst)->nbr > (*lst)->next->nbr)
-        sa1(lst);
+        sa(lst);
 
     //ft_printf("ptr nbr %i\n", (*lst)->nbr);
     //ft_printf("ptr next next nbr %i", (*lst)->next->next->nbr);
