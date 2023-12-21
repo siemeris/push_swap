@@ -1,5 +1,16 @@
 #include "push_swap.h"
 
+
+//CONTROL DE ERRORES:
+//Si hay algún error, el programa deberá mostrar "Error" seguido de un salto de línea y
+// devolver el control al sistema operativo (return (1)).
+//Los errores pueden ser de dos tipos:
+//• Formato de entrada: los parámetros no son números enteros, hay duplicados, hay
+// algún parámetro que no es un número, etc. 
+// Puede admitir a la vez numeros string y numeros int.
+// Puede admitir negativos.
+
+
 int check_arg(int argc, char **arg)
 {
     int i;

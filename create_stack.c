@@ -51,14 +51,15 @@ t_stack *create_stack(char **argv, int argc)
     i = 1;
     A = ft_lst_new(ft_atoi(argv[i]));
     aux = A;
+    aux->prev = NULL;
     i++;
     while (i < argc)
     {
         aux->next = ft_lst_new(ft_atoi(argv[i]));
         i++;
+        aux->next->prev = aux;
         aux = aux->next;
     }
     aux->next = NULL;
-
 	return (A);
 }

@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/20 18:47:04 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/21 08:29:33 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ int main(int argc, char *argv[])
     }
     else
     {
+        //CORREGIR PARA QUE FUNCIONE CON ./push_swap "7 9 8" !!!!
+        // ./push_swap --32 Debería dar error
         if (!check_arg(argc, argv))
             return (0);
         else
