@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/21 11:30:51 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/22 10:10:08 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,20 @@ void imprimir_lista(t_stack *A)
     while (aux)
     {
         ft_printf("%i", aux->nbr);
+        aux = aux->next;
+    }
+    ft_printf("\n");
+}
+
+//para debuguear e imprimir todos los datos
+void imprimir_lista_all(t_stack *A)
+{
+    t_stack *aux;
+
+    aux = A;
+    while (aux)
+    {
+        ft_printf("nbr:%i idx:%i cost:%i ab_medium:%i cheapest:%i\n", aux->nbr, aux->idx, aux->cost, aux->ab_medium, aux->cheapest);
         aux = aux->next;
     }
     ft_printf("\n");

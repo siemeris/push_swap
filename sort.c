@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:36:50 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/22 09:24:34 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:26:37 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@ void    init_data_ab(t_stack *a, t_stack *b)
     init_cost_ab(a, b);
     init_cheapest(a);
 }
+
+// void    init_data_ba(t_stack *a, t_stack *b)
+// {
+//     init_idx_medium(a);
+//     init_idx_medium(b);
+//     init_target_ba(a, b);
+// }
+
 
 void    init_idx_medium(t_stack *lst)
 {
@@ -108,6 +116,25 @@ t_stack *max(t_stack *lst)
     return aux;
 }
 
+t_stack *min(t_stack *lst)
+{
+    int min;
+    t_stack *aux;
+
+    min = 2147483647;
+    while(lst)
+    {
+        if (lst->nbr < min)
+        {
+            min = lst->nbr;
+            aux = lst;
+        }
+        lst = lst->next;
+    }
+
+    return aux;
+}
+
 
 
 void    init_target_ab(t_stack *a, t_stack *b)
@@ -148,15 +175,61 @@ void    init_target_ab(t_stack *a, t_stack *b)
     a = auxa;
     while (a)
     {
-        ft_printf("nbr %i\n target %i\n", a->nbr, a->target->nbr);
+        //ft_printf("nbr %i\n target %i\n", a->nbr, a->target->nbr);
         a = a->next;
     }
 }
 
+void    init_target_ba(t_stack *a, t_stack *b)
+{
+    int closest_bigger;
+
+    t_stack *auxa;
+    t_stack *auxb;
+    auxb = b;
+    auxa = a;
+
+    //imprimir_lista(a);
+    //imprimir_lista(b);
+
+    while (b)
+    {
+        closest_bigger = 2147483647;
+        a = auxa;
+        while(a)
+        {
+            //tenemos que encontrar el más cercano más grande
+            if (b->nbr < a->nbr)
+            {
+                if (a->nbr < closest_bigger)
+                {
+                    closest_bigger = a->nbr;
+                    b->target = a;
+                }
+            }
+            a = a->next;
+        }
+        if (closest_bigger == 2147483647)
+            b->target = min(auxa);
+        b = b->next;
+    }
+
+    //imprimimos la lista con la info
+    b = auxb;
+    while (b)
+    {
+        //ft_printf("nbr %i\n target %i\n", b->nbr, b->target->nbr);
+        b = b->next;
+    }
+
+}
+
+
+
 void    init_cost_ab(t_stack *a, t_stack *b)
 {
-    imprimir_lista(a);
-    imprimir_lista(b);
+    //imprimir_lista(a);
+    //imprimir_lista(b);
 
     t_stack *auxa;
     int     lena;
@@ -193,7 +266,7 @@ void    init_cost_ab(t_stack *a, t_stack *b)
     //imprimimos la lista con la info
     while (a)
     {
-        ft_printf("nbr %i\n cost %i\n", a->nbr, a->cost);
+        //ft_printf("nbr %i\n cost %i\n", a->nbr, a->cost);
         a = a->next;
     }
 
@@ -222,7 +295,7 @@ void   init_cheapest(t_stack *a)
     //imprimimos la lista con la info
     while (a)
     {
-        ft_printf("nbr %i\n cheapest %i\n", a->nbr, a->cheapest);
+        //ft_printf("nbr %i\n cheapest %i\n", a->nbr, a->cheapest);
         a = a->next;
     }
 }
@@ -230,23 +303,23 @@ void   init_cheapest(t_stack *a)
 void from_a_to_b(t_stack **a, t_stack **b)
 {
     t_stack *info_a;
-    ft_printf("estoy aquí");
+    //ft_printf("estoy aquí");
     
     info_a = *a;
     //recupero info del cheapest y del objetivo
     while(info_a && info_a->cheapest != 1)
     { 
-        ft_printf("nbr %i", info_a->nbr);
+        //ft_printf("nbr %i", info_a->nbr);
         info_a = info_a->next;
     }
-    ft_printf("nbr %i", info_a->nbr);
-    ft_printf("b %i", (*b)->nbr );
+    //ft_printf("nbr %i", info_a->nbr);
+    //ft_printf("b %i", (*b)->nbr );
 
     //ROTACIÓN AMBOS
     //si tanto el cheapest como el target están por encima de la media, rotamos ambos
     if (info_a->ab_medium == 1 && info_a->target->ab_medium == 1)
     {
-        ft_printf("estoy aquí primer if");
+        //ft_printf("estoy aquí primer if");
         //comprobamos que no estén en índice 0, si están en índice cero no rotamos
         while (*b != info_a->target && (info_a->idx!=0 || info_a->target->idx!=0))
         {
@@ -256,7 +329,7 @@ void from_a_to_b(t_stack **a, t_stack **b)
     }
     else if (info_a->ab_medium == 0 && info_a->target->ab_medium == 0)
     {
-        ft_printf("estoy aquí segundo if");
+        //ft_printf("estoy aquí segundo if");
         //comprobamos que no estén en índice 0, si están en índice cero no rotamos
         while (*b != info_a->target && (info_a->idx!=0 || info_a->target->idx!=0))
         {
@@ -267,7 +340,7 @@ void from_a_to_b(t_stack **a, t_stack **b)
 
     if (info_a->target->ab_medium == 1)
     {
-        ft_printf("estoy aquí primer if");
+        //ft_printf("estoy aquí primer if");
         //comprobamos que no estén en índice 0, si están en índice cero no rotamos
         while (*b != info_a->target)
         {
@@ -277,7 +350,7 @@ void from_a_to_b(t_stack **a, t_stack **b)
     }
     if (info_a->target->ab_medium == 0)
     {
-        ft_printf("estoy aquí segundo if");
+        //ft_printf("estoy aquí segundo if");
         //comprobamos que no estén en índice 0, si están en índice cero no rotamos
         while (*b != info_a->target)
         {
@@ -289,9 +362,87 @@ void from_a_to_b(t_stack **a, t_stack **b)
     //PUSH B
     pb(a, b);
 
-    imprimir_lista(*a);
-    imprimir_lista(*b);
+    //imprimir_lista(*a);
+    //imprimir_lista(*b);
 
+}
+
+void from_b_to_a(t_stack **a, t_stack **b)
+{
+    t_stack *info_b;
+    //ft_printf("estoy aquí");
+    
+    info_b = *b;
+    //recupero info del cheapest y del objetivo
+    // while(info_a && info_a->cheapest != 1)
+    // { 
+    //     ft_printf("nbr %i", info_a->nbr);
+    //     info_a = info_a->next;
+    // }
+    // ft_printf("nbr %i", info_a->nbr);
+    // ft_printf("b %i", (*b)->nbr );
+
+    //ROTACIÓN AMBOS
+    //si tanto el cheapest como el target están por encima de la media, rotamos ambos
+    // if (info_b->ab_medium == 1 && info_b->target->ab_medium == 1)
+    // {
+    //     ft_printf("estoy aquí primer if");
+    //     //comprobamos que no estén en índice 0, si están en índice cero no rotamos
+    //     while (*b != info_a->target && (info_a->idx!=0 || info_a->target->idx!=0))
+    //     {
+	// 	    rr(a, b);
+    //         init_idx_medium(*b);
+    //     }
+    // }
+    // else if (info_a->ab_medium == 0 && info_a->target->ab_medium == 0)
+    // {
+    //     ft_printf("estoy aquí segundo if");
+    //     //comprobamos que no estén en índice 0, si están en índice cero no rotamos
+    //     while (*b != info_a->target && (info_a->idx!=0 || info_a->target->idx!=0))
+    //     {
+    //         rrr(a, b);
+    //         init_idx_medium(*b);
+    //     }
+    // }
+
+    if (info_b->target->ab_medium == 1)
+    {
+        //ft_printf("estoy aquí primer if");
+        //comprobamos que no estén en índice 0, si están en índice cero no rotamos
+        while (*a != info_b->target)
+        {
+		    ra(a);
+            init_idx_medium(*a);
+        }
+    }
+    if (info_b->target->ab_medium == 0)
+    {
+        //ft_printf("estoy aquí segundo if");
+        //comprobamos que no estén en índice 0, si están en índice cero no rotamos
+        while (*a != info_b->target)
+        {
+		    rra(a);
+        //actualizamos el índice del elemento movido
+            init_idx_medium(*a);
+        }
+    }
+    //PUSH A
+    pa(a, b);
+
+    //imprimir_lista(*a);
+    //imprimir_lista(*b);
+
+}
+
+void    reorder_a(t_stack **a)
+{
+    while ((*a)->nbr != min(*a)->nbr) //As long as the smallest number is not at the top
+	{
+		if (min(*a)->ab_medium) //Rotate or reverse rotate according to the position of the node on the median
+			ra(a);
+		else
+			rra(a);
+	}
 }
 
 void    sort(t_stack **a, t_stack **b)
@@ -306,17 +457,38 @@ void    sort(t_stack **a, t_stack **b)
     {
         //ft_printf("no está ordenado");
         pb(a, b);
+        len = stack_len(*a);
     }
     if (len > 3 && !is_sorted(*a))
     {
         //ft_printf("no está ordenado");
         pb(a, b);
+        len = stack_len(*a);
     }
-    init_data_ab(*a, *b);
-    from_a_to_b(a,b);
-    //sort_three(a);
+    while (len > 3)
+    {
+        init_data_ab(*a, *b);
+        from_a_to_b(a,b);
+        len = stack_len(*a);
+    }
+    sort_three(a);
+    //pasamos los numeros de b a a, calculando el objetivo de b
+    while(*b)
+    {init_idx_medium(*a);
+    init_idx_medium(*b);
+    init_target_ba(*a, *b);
+    //movemos los numeros de b a a 
+    //esta vez no hacemos análisis de costes
+    //pero asegurándonos que el objetivo de b está al principio
     
-    //imprimir_lista(*a);
-    //imprimir_lista(*b);
+    //MEJORAR FROM_B_TO_A
+    from_b_to_a(a,b);  
+    }
+    init_idx_medium(*a);
+
+    reorder_a(a);
+    
+    //imprimir_lista_all(*a);
+    //imprimir_lista_all(*b);
 
 }

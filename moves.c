@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:24:19 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/21 11:57:58 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/22 10:52:54 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,4 +140,15 @@ void pb(t_stack **a, t_stack **b)
     tmp->next = *b;
     *b = tmp;
     ft_printf("pb\n");
+}
+
+void pa(t_stack **a, t_stack **b)
+{
+    t_stack *tmp;
+
+    tmp = *b;
+    *b = (*b)->next;
+    tmp->next = *a;
+    *a = tmp;
+    ft_printf("pa\n");
 }
