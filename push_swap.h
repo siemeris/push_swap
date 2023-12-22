@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 08:46:36 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/21 17:55:00 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/22 08:07:42 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void    init_data_ab(t_stack *a, t_stack *b);
 void    init_idx_medium(t_stack *lst);
 void    init_target_ab(t_stack *a, t_stack *b);
 void    init_cost_ab(t_stack *a, t_stack *b);
-// void    init_cheapest(t_stack *a);
+void    init_cheapest(t_stack *a);
+
+void    from_a_to_b(t_stack **a, t_stack **b);
 
 #endif
