@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: issierra <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 09:23:40 by issierra          #+#    #+#             */
-/*   Updated: 2023/09/24 11:01:50 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/23 12:25:25 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,13 @@ static char	**ft_copy(char const *s, char c, char **res, int num_words)
 	int		w;
 	int		l;
 
-	w = 0;
-	while (w < num_words)
+	
+	res[0] = malloc(sizeof(char));
+	if (!res[0])
+		return (NULL);
+	res[0] = "";
+	w = 1;
+	while (w < num_words + 1)
 	{
 		l = 0;
 		while (*s == c)
@@ -104,7 +109,7 @@ char	**ft_split(char const *s, char c)
 	int		num_words;
 
 	num_words = ft_count_words(s, c);
-	res = malloc(sizeof(char *) * (num_words + 1));
+	res = malloc(sizeof(char *) * (num_words + 2));
 	if (!res || !s)
 		return (NULL);
 	res = ft_copy(s, c, res, num_words);

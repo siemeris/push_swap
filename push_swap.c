@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/22 19:30:25 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/23 15:02:03 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,21 @@ int main(int argc, char *argv[])
     A = NULL;
     B = NULL;
     //atexit(leaks);
+    int i;
+    if (argc == 2 && argv[1][1] != '\0')
+    {
+        argv = ft_split(argv[1], ' ');
+        //imprimimos la lista de argumentos
+        i = 0;
+        while(argv[i])
+        {
+            //ft_printf("argv %i %s", i, argv[i]);
+            i++;
+        }
+        argc = i;
+    }
+
+
     if (argc < 2)
     {
         //ft_printf("Error.\nNúmero de argumentos inválidos %i\n", argc);
@@ -100,12 +115,7 @@ int main(int argc, char *argv[])
             if (stack_len(A) == 2)
             {
                 if (A->nbr > A->next->nbr)
-                {
                     sa(&A);
-                    //ft_printf("print desp del swap: %i %i", A->nbr, A->next->nbr);
-
-                    //ft_printf("\n");
-                }
             }
             else if(stack_len(A) == 3)
             {   if (is_sorted(A))
