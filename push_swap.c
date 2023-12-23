@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/23 17:58:06 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/23 18:20:44 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,66 +72,47 @@ int main(int argc, char *argv[])
     B = NULL;
     //atexit(leaks);
     int i;
+
+    if (argc < 2)
+        return(0);
+    
     if (argc == 2 && argv[1][1] != '\0')
     {
         argv = ft_split(argv[1], ' ');
-        //imprimimos la lista de argumentos
         i = 0;
         while(argv[i])
-        {
-            //ft_printf("argv %i %s", i, argv[i]);
             i++;
-        }
         argc = i;
     }
 
-    if (argc < 2)
-    {
-        //ft_printf("Error.\nNúmero de argumentos inválidos %i\n", argc);
-        return(0);
-    }
+    if (!check_arg(argc, argv))
+        return (0);
     else
     {
-        //CORREGIR PARA QUE FUNCIONE CON ./push_swap "7 9 8" !!!!
-        // ./push_swap --32 Debería dar error
-        if (!check_arg(argc, argv))
-            return (0);
-        else
+        //Creamos el stack A
+        A = create_stack(argv, argc);   
+        if (is_sorted(A))
         {
-            //ft_printf("numeros validos");
-
-            //Creamos el stack A
-            A = create_stack(argv, argc);
-            
-            if (is_sorted(A))
-            {
-                ft_lst_clear(A);
-                return(0);
-            }
-        
-            //ordenamos dos numeros
-            //ft_printf("len:%i", stack_len(A));
-            if (stack_len(A) == 2)
-            {
-                if (A->nbr > A->next->nbr)
-                    sa(&A);
-            }
-            else if(stack_len(A) == 3)
-            {   if (is_sorted(A))
-                    return (0);
-                else 
-                    sort_three(&A);
-            }
-            else
-                sort(&A, &B);
-            
-            //ft_printf("is_sorted:%i", is_sorted(A));
-            //imprimir_lista(A);
             ft_lst_clear(A);
-            //imprimir_lista(A);
-            
+            return(0);
         }
+        if (stack_len(A) == 2)
+        {
+            if (A->nbr > A->next->nbr)
+                sa(&A);
+        }
+        else if(stack_len(A) == 3)
+        {   if (is_sorted(A))
+                return (0);
+            else 
+                sort_three(&A);
+        }
+        else
+            sort(&A, &B);
+        //imprimir_lista(A);
+        ft_lst_clear(A);
+        //imprimir_lista(A);
+        
     }
-    
     return(0);
 }
