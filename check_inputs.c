@@ -43,7 +43,7 @@ int check_arg(int argc, char **arg)
         // ft_printf("len %i", len );
         while(len >= 1)
         {
-            if (len != 1 && (arg[i][0] == 45 || arg[i][1] == 43))
+            if (len -1 != 0 && (arg[i][len-1] == 45 || arg[i][len-1] == 43))
             {
                 ft_printf("Error\nNúmeros con caracter + o - en medio");
                 return(0);
