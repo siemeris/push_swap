@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 11:22:05 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:36:31 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,27 @@ int	sort_cases(t_stack **a)
 	return (1);
 }
 
+void	free_split(char **split)
+{
+	// int	i;
+
+	// i = 0;
+	if (split == NULL || *split == NULL)
+		return ;
+	ft_printf("freeing split\n %s", split[1]);
+	free(split[0]);
+	// while (split[i])
+	// {
+	// 	free(split[i]);
+	// 	i++;
+	// }
+	// free(split - 1);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
-	int		i;
+	// int		i;
 
 	a = NULL;
 	atexit(leaks);
@@ -73,15 +90,16 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
 	{
-		argv = ft_split(argv[1], ' ');
-		i = 0;
-		while (argv[i])
-			i++;
-		argc = i;
+		a = str_to_stack(argv[1], ' ');
+		if (!a)
+			return (0);
 	}
-	if (!check_arg(argc, argv))
+	else
+	{
+	if (!check_arg(argc, argv, 1))
 		return (0);
-	a = create_stack(argv, argc);
+	a = create_stack(argv, argc, 1);
+	}
 	if (!sort_cases(&a))
 	{
 		ft_lst_clear(a);

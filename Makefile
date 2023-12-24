@@ -6,7 +6,7 @@
 #    By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 11:51:03 by issierra          #+#    #+#              #
-#    Updated: 2023/12/24 11:09:09 by issierra         ###   ########.fr        #
+#    Updated: 2023/12/24 15:13:38 by issierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ H=push_swap.h
 
 SRC=	push_swap.c check_inputs.c create_stack.c \
 		moves_rotr.c moves_swap.c moves_rot.c moves_push.c \
-		sort.c sort_utils.c sort_updates.c \
+		sort.c sort_utils.c sort_updates.c str_to_stack.c \
 
 
 OBJ=$(SRC:.c=.o)

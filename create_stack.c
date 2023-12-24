@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 19:13:14 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/23 19:15:54 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:09:46 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,11 @@ int	stack_len(t_stack *lst)
 	return (len);
 }
 
-t_stack	*create_stack(char **argv, int argc)
+t_stack	*create_stack(char **argv, int argc, int i)
 {
-	int		i;
 	t_stack	*aux;
 	t_stack	*a;
 
-	i = 1;
 	a = ft_lst_new(ft_atoi(argv[i]));
 	aux = a;
 	aux->prev = NULL;

@@ -6,18 +6,16 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 18:22:11 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/23 18:47:11 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:30:54 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	chars(char**arg)
+static int	chars(char**arg, int i)
 {
-	int	i;
 	int	len;
 
-	i = 1;
 	while (arg[i])
 	{
 		len = ft_strlen(arg[i]);
@@ -41,12 +39,12 @@ static int	chars(char**arg)
 	return (1);
 }
 
-static	int	repeated_numbers(int argc, char**arg)
+static	int	repeated_numbers(int argc, char**arg, int i)
 {
-	int	i;
+	// int	i;
 	int	j;
 
-	i = 1;
+	// i = 1;
 	while (i < argc - 1)
 	{
 		j = i + 1;
@@ -64,13 +62,13 @@ static	int	repeated_numbers(int argc, char**arg)
 	return (1);
 }
 
-int	check_arg(int argc, char **arg)
+int	check_arg(int argc, char **arg, int i)
 {
-	int	i;
+	int	j;
 
-	if (!chars(arg))
+	if (!chars(arg, i))
 		return (0);
-	i = 1;
+	j = i;
 	while (i < argc)
 	{
 		if (ft_atoi(arg[i]) > 2147483647 || ft_atoi(arg[i]) < -2147483648)
@@ -80,7 +78,7 @@ int	check_arg(int argc, char **arg)
 		}
 		i++;
 	}
-	if (!repeated_numbers(argc, arg))
+	if (!repeated_numbers(argc, arg, j))
 		return (0);
 	return (1);
 }

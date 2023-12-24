@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 08:46:36 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/23 09:39:49 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:27:43 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_stack
     struct s_stack *prev;
 }	t_stack;
 
-int     check_arg(int argc, char **arg);
-t_stack *create_stack(char **argv, int argc);
+int     check_arg(int argc, char **arg, int i);
+t_stack *create_stack(char **argv, int argc, int i);
 
 int     is_sorted(t_stack *lst);
 int     stack_len(t_stack *lst);
@@ -68,5 +68,7 @@ void    from_b_to_a(t_stack **a, t_stack **b);
 t_stack *max(t_stack *lst);
 t_stack *min(t_stack *lst);
 void    reorder_a(t_stack **a);
+
+t_stack	*str_to_stack(char const *s, char c);
 
 #endif
