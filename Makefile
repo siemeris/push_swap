@@ -6,7 +6,7 @@
 #    By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 11:51:03 by issierra          #+#    #+#              #
-#    Updated: 2023/12/23 18:50:45 by issierra         ###   ########.fr        #
+#    Updated: 2023/12/24 08:46:34 by issierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ LIBFT=./libft/libft.a
 H=push_swap.h
 
 SRC=	push_swap.c check_inputs.c create_stack.c \
-		moves.c sort.c sort_utils.c sort_updates.c \
+		moves_rotr.c moves_swap.c moves_rot.c moves_push.c \
+		sort.c sort_utils.c sort_updates.c \
 
 
 OBJ=$(SRC:.c=.o)

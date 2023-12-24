@@ -6,13 +6,13 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:36:50 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/23 09:50:48 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 08:36:32 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sort_three(t_stack **lst)
+void	sort_three(t_stack **lst)
 {
     //si el maximo es el primero, lo mando al final (ra)
     if ((*lst)->nbr > (*lst)->next->nbr && (*lst)->nbr > (*lst)->next->next->nbr)
