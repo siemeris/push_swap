@@ -6,11 +6,18 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 18:22:11 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 20:32:32 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 20:52:30 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//Check:
+//Números con + o - en medio: 111-1 3 4 5
+//Caracter no válido: 1a 2 3 4
+//Sólo signo y falta número: + 1 2 3
+//Números repetidos: 1 2 3 3
+//Números fuera de rango: 2147483648 2 3 4
 
 static int	chars(char**arg, int i)
 {
