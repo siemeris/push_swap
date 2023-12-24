@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 18:22:11 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 16:26:46 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 20:32:32 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,15 @@ static int	chars(char**arg, int i)
 		while (len >= 1)
 		{
 			if (len -1 != 0 && (arg[i][len - 1] == 45 || arg[i][len - 1] == 43))
-			{
-				ft_putendl_fd("Error\nNúmeros con caracter + o - en medio", STDERR);
-				return (0);
-			}
+				return (ft_putendl_fd("Error\nNúmeros con + o - en medio", \
+STDERR), 0);
 			if (!((arg[i][len - 1] >= 48 && arg[i][len - 1] <= 57)
 				|| (arg[i][len - 1] == 45) || (arg[i][len - 1] == 43)))
-			{
-				ft_putendl_fd("Error\nCaracter no válido", STDERR);
-				return (0);
-			}
-			if (len ==1 && (arg[i][len - 1] == 45 || arg[i][len - 1] == 43) && !arg[i][len])
-			{
-				ft_putendl_fd("Error\nSólo signo y falta número", STDERR);
-				return (0);
-			}
+				return (ft_putendl_fd("Error\nCaracter no válido", STDERR), 0);
+			if (len == 1 && (arg[i][len - 1] == 45
+				|| arg[i][len - 1] == 43) && !arg[i][len])
+				return (ft_putendl_fd("Error\nSólo signo y falta número", \
+STDERR), 0);
 			len--;
 		}
 		i++;
