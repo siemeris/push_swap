@@ -33,3 +33,50 @@ rrr rra y rrb al mismo tiempo.
 
 
 https://42born2code.slack.com/archives/CN9RHKQHW/p1678967571416329
+
+
+SORT
+
+//PASOS PARA ORDENAR STACK DE MAS DE 3 NÚMEROS:
+//1. Crear stack B
+// Si en A hay más de 3 elementos empujamos un elemento a B y ordenamos los 3 restantes.
+//2. Mientras stack A tenga más de 3 números:
+// 2.1. Calcular nodo objetivo (el cercano más pequeño, 
+// si no hay cercano más pequeño entonces el objetivo es el más grande)
+// 2.2. Análisis de Costes. 
+// 2.3. Movemos el de menor coste a B.
+// 2.4 2.2 y 2.3 hasta que queden 3 números.
+//3. Ordenamos los 3 números de A.
+//4. Mientras no queden números en B:
+// 4.1. Calcular nodo objetivo de B a A(el cercano más grande
+// si no hay cercano más grande entonces el objetivo es el más pequeño)
+// 4.3. Movemos el objetivo en A al índice cero.
+// 4.4 4.2 y 4.3 hasta que no queden números en B.
+
+Funciones para debugear:
+void imprimir_lista(t_stack *A)
+{
+    t_stack *aux;
+
+    aux = A;
+    while (aux)
+    {
+        ft_printf("%i", aux->nbr);
+        aux = aux->next;
+    }
+    ft_printf("\n");
+}
+
+//para debuguear e imprimir todos los datos
+void imprimir_lista_all(t_stack *A)
+{
+    t_stack *aux;
+
+    aux = A;
+    while (aux)
+    {
+        ft_printf("nbr:%i idx:%i cost:%i ab_medium:%i cheapest:%i\n", aux->nbr, aux->idx, aux->cost, aux->ab_medium, aux->cheapest);
+        aux = aux->next;
+    }
+    ft_printf("\n");
+}
