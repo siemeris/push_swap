@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_m.c                                       :+:      :+:    :+:   */
+/*   str_to_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 09:23:40 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 14:35:46 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 15:17:55 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ t_stack	*str_to_stack(char const *s, char c)
 	int		i;
 	int		resc;
 	t_stack	*a;
-	
+
 	num_words = ft_count_words(s, c);
 	res = malloc(sizeof(char *) * (num_words + 2));
 	if (!res || !s)

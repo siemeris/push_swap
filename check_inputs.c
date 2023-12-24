@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 18:22:11 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 14:30:54 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 15:15:52 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,8 @@ static int	chars(char**arg, int i)
 
 static	int	repeated_numbers(int argc, char**arg, int i)
 {
-	// int	i;
 	int	j;
 
-	// i = 1;
 	while (i < argc - 1)
 	{
 		j = i + 1;
