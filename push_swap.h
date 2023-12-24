@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 08:46:36 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 14:27:43 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 16:31:54 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "./libft/libft.h"
+
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+# define STDERR 2
 
 typedef struct s_stack
 {

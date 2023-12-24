@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 09:17:20 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/23 19:01:47 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 17:10:07 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ void	upd_target_ab(t_stack *a, t_stack *b)
 
 void	upd_target_ba(t_stack *a, t_stack *b)
 {
-	int		closest_bigger;
-	t_stack	*auxa;
+	long int		closest_bigger;
+	t_stack			*auxa;
 
 	auxa = a;
 	while (b)
 	{
-		closest_bigger = 2147483647;
+		closest_bigger = 2147483648;
 		a = auxa;
 		while (a)
 		{
@@ -82,7 +82,7 @@ void	upd_target_ba(t_stack *a, t_stack *b)
 			}
 			a = a->next;
 		}
-		if (closest_bigger == 2147483647)
+		if (closest_bigger == 2147483648)
 			b->target = min(auxa);
 		b = b->next;
 	}

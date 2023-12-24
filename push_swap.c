@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 15:17:30 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 17:08:25 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,38 @@ void	free_split(char **split)
 	free(split[0]);
 }
 
+// void imprimir_lista(t_stack *A)
+// {
+//     t_stack *aux;
+
+//     aux = A;
+//     while (aux)
+//     {
+//         ft_printf(" %i ", aux->nbr);
+//         aux = aux->next;
+//     }
+//     ft_printf("\n");
+// }
+
+// void imprimir_lista_all(t_stack *A)
+// {
+//     t_stack *aux;
+
+//     aux = A;
+//     while (aux)
+//     {
+//         ft_printf("nbr:%i idx:%i cost:%i ab_medium:%i cheapest:%i target:%i\n", aux->nbr, aux->idx, aux->cost, aux->ab_medium, aux->cheapest, aux->target->nbr);
+//         aux = aux->next;
+//     }
+//     ft_printf("\n");
+// }
+
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
 
 	a = NULL;
-	atexit(leaks);
+	//atexit(leaks);
 	if (argc < 2)
 		return (0);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
@@ -95,6 +121,7 @@ int	main(int argc, char *argv[])
 		ft_lst_clear(a);
 		return (0);
 	}
+	//imprimir_lista(a);
 	ft_lst_clear(a);
 	return (0);
 }

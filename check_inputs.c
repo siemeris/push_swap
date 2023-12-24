@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 18:22:11 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 15:15:52 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 16:26:46 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,18 @@ static int	chars(char**arg, int i)
 		{
 			if (len -1 != 0 && (arg[i][len - 1] == 45 || arg[i][len - 1] == 43))
 			{
-				ft_printf("Error\nNúmeros con caracter + o - en medio");
+				ft_putendl_fd("Error\nNúmeros con caracter + o - en medio", STDERR);
 				return (0);
 			}
 			if (!((arg[i][len - 1] >= 48 && arg[i][len - 1] <= 57)
 				|| (arg[i][len - 1] == 45) || (arg[i][len - 1] == 43)))
 			{
-				ft_printf("Error\nCaracter no válido");
+				ft_putendl_fd("Error\nCaracter no válido", STDERR);
+				return (0);
+			}
+			if (len ==1 && (arg[i][len - 1] == 45 || arg[i][len - 1] == 43) && !arg[i][len])
+			{
+				ft_putendl_fd("Error\nSólo signo y falta número", STDERR);
 				return (0);
 			}
 			len--;
@@ -50,7 +55,7 @@ static	int	repeated_numbers(int argc, char**arg, int i)
 		{
 			if (ft_atoi(arg[i]) == ft_atoi(arg[j]))
 			{
-				ft_printf("Error\nNúmeros repes %i", ft_atoi(arg[i]));
+				ft_putendl_fd("Error\nNúmeros repetidos", STDERR);
 				return (0);
 			}
 			j++;
@@ -69,9 +74,9 @@ int	check_arg(int argc, char **arg, int i)
 	j = i;
 	while (i < argc)
 	{
-		if (ft_atoi(arg[i]) > 2147483647 || ft_atoi(arg[i]) < -2147483648)
+		if (ft_atoi(arg[i]) > INT_MAX || ft_atoi(arg[i]) < INT_MIN)
 		{
-			ft_printf("Error\nNúmeros fuera de rango");
+			ft_putendl_fd("Error\nNúmeros fuera de rango", 2);
 			return (0);
 		}
 		i++;
