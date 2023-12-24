@@ -6,11 +6,23 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 09:10:26 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/23 19:06:06 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 11:08:40 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_three(t_stack **lst)
+{
+	if ((*lst)->nbr > (*lst)->next->nbr
+		&& (*lst)->nbr > (*lst)->next->next->nbr)
+		ra(lst);
+	else if (((*lst)->next->nbr > (*lst)->nbr)
+		&& ((*lst)->next->nbr > (*lst)->next->next->nbr))
+		rra(lst);
+	if ((*lst)->nbr > (*lst)->next->nbr)
+		sa(lst);
+}
 
 t_stack	*max(t_stack *lst)
 {
