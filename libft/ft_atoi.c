@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 13:50:11 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/23 11:47:51 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/24 15:30:03 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
+	int			i;
+	int			sign;
 	long int	res;
 
 	i = 0;
