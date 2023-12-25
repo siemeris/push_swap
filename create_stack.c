@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 19:13:14 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 14:09:46 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/25 09:11:13 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,11 @@ t_stack	*create_stack(char **argv, int argc, int i)
 
 	a = ft_lst_new(ft_atoi(argv[i]));
 	aux = a;
-	aux->prev = NULL;
 	i++;
 	while (i < argc)
 	{
 		aux->next = ft_lst_new(ft_atoi(argv[i]));
 		i++;
-		aux->next->prev = aux;
 		aux = aux->next;
 	}
 	aux->next = NULL;

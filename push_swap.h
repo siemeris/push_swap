@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 08:46:36 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/24 20:39:39 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/25 09:10:56 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,16 @@ typedef struct s_stack
 	int				cheapest;
 	struct s_stack	*target;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
+t_stack	*str_to_stack(char const *s, char c);
 int		check_arg(int argc, char **arg, int i);
 t_stack	*create_stack(char **argv, int argc, int i);
 
 int		is_sorted(t_stack *lst);
 int		stack_len(t_stack *lst);
 void	sort_three(t_stack **lst);
+void	sort(t_stack **a, t_stack **b);
 
 //DEBUGUEAR
 void	imprimir_lista(t_stack *A);
@@ -57,9 +58,6 @@ void	rrb(t_stack **ptr);
 void	pb(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 
-void	sort(t_stack **a, t_stack **b);
-
-// void    upd_data_ab(t_stack *a, t_stack *b);
 void	upd_idx_medium(t_stack *lst);
 void	upd_target_ab(t_stack *a, t_stack *b);
 void	upd_cost_ab(t_stack *a, t_stack *b);
@@ -72,7 +70,5 @@ void	from_b_to_a(t_stack **a, t_stack **b);
 t_stack	*max(t_stack *lst);
 t_stack	*min(t_stack *lst);
 void	reorder_a(t_stack **a);
-
-t_stack	*str_to_stack(char const *s, char c);
 
 #endif

@@ -80,3 +80,13 @@ void imprimir_lista_all(t_stack *A)
     }
     ft_printf("\n");
 }
+
+
+Para leaks:
+
+void	leaks(void)
+{
+	system("leaks -q push_swap");
+}
+
+atexit(leaks);
