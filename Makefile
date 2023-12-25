@@ -6,7 +6,7 @@
 #    By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 11:51:03 by issierra          #+#    #+#              #
-#    Updated: 2023/12/24 15:13:38 by issierra         ###   ########.fr        #
+#    Updated: 2023/12/25 09:16:34 by issierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ clean:
 	@rm -f $(OBJ) 
 
 fclean: clean
-	@make clean -C ./libft
+	@make fclean -C ./libft
 	@rm -f $(NAME) 
 
 re: fclean all
