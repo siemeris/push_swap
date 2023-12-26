@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 08:46:36 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/25 09:10:56 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/26 09:11:24 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ int		is_sorted(t_stack *lst);
 int		stack_len(t_stack *lst);
 void	sort_three(t_stack **lst);
 void	sort(t_stack **a, t_stack **b);
-
-//DEBUGUEAR
-void	imprimir_lista(t_stack *A);
-void	imprimir_lista_all(t_stack *A);
 
 void	swap(t_stack **ptr);
 void	rot(t_stack **ptr);

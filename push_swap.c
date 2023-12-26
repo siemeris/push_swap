@@ -6,7 +6,7 @@
 /*   By: issierra <issierra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:52:57 by issierra          #+#    #+#             */
-/*   Updated: 2023/12/25 09:12:53 by issierra         ###   ########.fr       */
+/*   Updated: 2023/12/26 09:10:23 by issierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,6 @@ int	sort_cases(t_stack **a)
 	else
 		sort(a, &b);
 	return (1);
-}
-
-void	free_split(char **split)
-{
-	if (split == NULL || *split == NULL)
-		return ;
-	ft_printf("freeing split\n %s", split[1]);
-	free(split[0]);
 }
 
 int	main(int argc, char *argv[])
