@@ -97,4 +97,4 @@ void	leaks(void)
 
 ```C
 atexit(leaks);
-```
+``````
