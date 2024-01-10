@@ -37,12 +37,12 @@ Push Swap is a project at 42 School that challenges you to implement a sorting a
    ```bash
    git clone https://github.com/siemeris/push_swap.git
    cd push_swap
-   ````
+   ```
 2. Compile the project:
     
     ```bash
     make
-    ````
+    ```
 
 ## Usage
 
