@@ -49,7 +49,7 @@ Push Swap is a project at 42 School that challenges you to implement a sorting a
 Run the program by providing a list of integers as arguments:  
 
     ```bash
-    ./push_swap 4 2 8 1 3
+    ./push_swap 9 4 2 7 1
     ```
 
 ### Project Structure
