@@ -32,7 +32,7 @@ Push Swap is a project at 42 School that challenges you to implement a sorting a
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository and enter the project folder:
 
    ```bash
    git clone https://github.com/siemeris/push_swap.git
@@ -47,12 +47,11 @@ Push Swap is a project at 42 School that challenges you to implement a sorting a
 ## Usage
 
 Run the program by providing a list of integers as arguments:  
-
-    ```
+    ```bash
     ./push_swap 9 4 2 7 1
     ```
-
-### Project Structure
+    
+## Project Structure
 
 The project structure is organized as follows:
 
@@ -60,7 +59,7 @@ The project structure is organized as follows:
 - `./libft/`: 42 standard library, first project performed in the cursus.
 - `./Makefile`: File for compiling the project.
 
-### Examples
+## Examples
 
 1. Sorting a list of integers:
 
@@ -72,6 +71,6 @@ The project structure is organized as follows:
     ./push_swap 3 1 5 | ./checker 3 1 5
     ````
 
-### Contributing
+## Contributing
 
 If you wish to contribute to this project, please create an issue or submit a pull request.
