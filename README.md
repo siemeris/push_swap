@@ -48,6 +48,11 @@ Push Swap is a project at 42 School that challenges you to implement a sorting a
 
 Run the program by providing a list of integers as arguments:  
 
+```bash
+./push_swap 8 4 -217 2 -2147483648 0
+```
+
+Running the ./checker:
 > If you have problems running the `./checker`, use `chmod 777 ./checker` and try again.
 ```bash
 ./push_swap [numbers] | ./checker [numbers]
