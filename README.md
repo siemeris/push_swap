@@ -1,4 +1,4 @@
-# Push Swap - 42 School Project
+# Push Swap - 42 Project
 
 
 ## Table of Contents
