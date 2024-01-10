@@ -46,10 +46,12 @@ Push Swap is a project at 42 School that challenges you to implement a sorting a
 
 ## Usage
 
-Run the program by providing a list of integers as arguments:
+Run the program by providing a list of integers as arguments:  
+
     ```bash
     ./push_swap 4 2 8 1 3
     ```
+
 ### Project Structure
 
 The project structure is organized as follows:
