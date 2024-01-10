@@ -54,6 +54,8 @@ SORT
 // 4.4 4.2 y 4.3 hasta que no queden números en B.
 
 Funciones para debugear:
+
+```C
 void imprimir_lista(t_stack *A)
 {
     t_stack *aux;
@@ -66,7 +68,9 @@ void imprimir_lista(t_stack *A)
     }
     ft_printf("\n");
 }
+````
 
+```C
 //para debuguear e imprimir todos los datos
 void imprimir_lista_all(t_stack *A)
 {
@@ -80,13 +84,17 @@ void imprimir_lista_all(t_stack *A)
     }
     ft_printf("\n");
 }
-
+``````
 
 Para leaks:
 
+```C
 void	leaks(void)
 {
 	system("leaks -q push_swap");
 }
+````
 
+```C
 atexit(leaks);
+```
